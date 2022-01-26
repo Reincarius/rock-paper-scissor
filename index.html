@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors</title>
+
+    <link rel='stylesheet' href="style.css">
+
+</head>
+
+<body>
+    <div class="game">
+        <h1> Choose Your Weapon </h1>
+        <button type="button" class='rockbtn' id='rock'> Rock </button>
+        <button type="button" class='paperbtn' id='paper'> Paper </button>
+        <button type="button" class='scissorbtn' id='scissor'> Scissor </button>
+
+        <h1> Opponent Chose: </h1>
+        <h2 id='computerChoice'> To be determined </h2>
+
+        <h1> Score: </h1>
+        <h2 id='score'> </h2>
+    </div>
+    <div class='instructions'>
+        <h3> How to play: </h3>
+        <p>
+            Pick Between Rock, Paper, & Scissor.
+            <br>
+            <br>
+            Rock Beats Scissors. <br>
+            Scissors Beats Paper. <br>
+            Paper Beats Rock.
+            <br>
+            <br>
+            Have fun!
+        </p>
+    </div>
+</body>
+
+</html>
+
+<script>
+    const weapons = ['Rock', 'Paper', 'Scissor']
+    let scoreCounter = 0;
+    const score = document.getElementById('score');
+    const rockBtn = document.getElementById('rock');
+    const paperBtn = document.getElementById('paper');
+    const scissorBtn = document.getElementById('scissor');
+    const displayChoice = document.getElementById('computerChoice');
+
+
+
+    rockBtn.onclick = function () {
+        const random = Math.floor(Math.random() * weapons.length);
+        const computerPicked = weapons[random];
+        displayChoice.innerHTML = weapons[random];
+
+        if (computerPicked === 'Paper') {
+            scoreCounter = scoreCounter - 1;
+            score.innerHTML = scoreCounter;
+        }
+        if (computerPicked === 'Scissor') {
+            scoreCounter = scoreCounter + 1;
+            score.innerHTML = scoreCounter;
+        } else {
+            scoreCounter = scoreCounter + 0;
+            score.innerHTML = scoreCounter;
+        }
+
+    }
+
+    paperBtn.onclick = function () {
+        const random = Math.floor(Math.random() * weapons.length);
+        const computerPicked = weapons[random];
+        displayChoice.innerHTML = weapons[random]
+
+
+        if (computerPicked === 'Rock') {
+            scoreCounter = scoreCounter + 1;
+            score.innerHTML = scoreCounter;
+        }
+        if (computerPicked === 'Scissor') {
+            scoreCounter = scoreCounter - 1;
+            score.innerHTML = scoreCounter;
+        } else {
+            scoreCounter = scoreCounter + 0;
+            score.innerHTML = scoreCounter;
+        }
+    }
+
+    scissorBtn.onclick = function () {
+        const random = Math.floor(Math.random() * weapons.length);
+        const computerPicked = weapons[random];
+        displayChoice.innerHTML = weapons[random]
+
+
+        if (computerPicked === 'Paper') {
+            scoreCounter = scoreCounter + 1;
+            score.innerHTML = scoreCounter;
+        }
+        if (computerPicked === 'Rock') {
+            scoreCounter = scoreCounter - 1;
+            score.innerHTML = scoreCounter;
+        } else {
+            scoreCounter = scoreCounter + 0;
+            score.innerHTML = scoreCounter;
+        }
+    }
+</script>
